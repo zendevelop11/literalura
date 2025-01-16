@@ -24,8 +24,5 @@ public interface IBookRepository extends JpaRepository<Book, Long> {
     @Query("SELECT DISTINCT b.lenguaje FROM Book b")
     List<String> findDistinctLanguages();
 
-    @Query("SELECT b FROM Book b JOIN b.lenguaje l WHERE l = :language")
-    List<Book> findBooksByLanguage(@Param("language") String language);
-
     List<Book> findByLenguaje(String lenguaje);
 }
